@@ -54,11 +54,14 @@ public class BotApi {
         throw new NotImplementedException("NotImplemented");
     }
 
-    public static void putTokenUser(long vkId) throws IOException, InterruptedException {
-        HttpResponse<String> response = PUT(String.format("httpL//localhost:8080/app/person?vkId=%d&token=generate", vkId), HttpRequest.BodyPublishers.noBody());
+    public static void putUserToken(long vkId) throws IOException, InterruptedException {
+        HttpResponse<String> response = PUT(String.format("http://localhost:8080/app/person?vkId=%d&token=generate", vkId), HttpRequest.BodyPublishers.noBody());
         System.out.println(response);
     }
 
+    public static void putUserStatus(long vkId, short status) throws IOException, InterruptedException {
+        HttpResponse<String> response = PUT(String.format("http://localhost:8080/app/vkId=%d&status=%d", vkId, status), HttpRequest.BodyPublishers.noBody());
+    }
 
     public static User getUser(long vkId) throws IOException, InterruptedException {
         HttpResponse<String> response = GET(String.format("http://localhost:8080/app/person?vkId=%d", vkId));
