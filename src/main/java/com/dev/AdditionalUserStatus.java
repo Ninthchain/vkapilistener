@@ -1,10 +1,10 @@
 package com.dev;
 
-public enum AdditionalPersonStatus {
+public enum AdditionalUserStatus {
 		SharingFriendLink ((short)125),
 		CheckingFriend ((short)140);
 		private final short code;
-		AdditionalPersonStatus(short statusCode) {
+		AdditionalUserStatus(short statusCode) {
 				this.code = statusCode;
 		}
 		

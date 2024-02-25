@@ -1,13 +1,13 @@
 package com.dev;
 
-public enum PersonStatus {
+public enum UserStatus {
 		Unknown ((short) 0),
 		UnverifiedAge ((short) 1),
 		Verified ((short) 2),
 		Invalid ((short) -4);
 		
 		private final short code;
-		PersonStatus(short statusCode) {
+		UserStatus(short statusCode) {
 				this.code = statusCode;
 		}
 		
