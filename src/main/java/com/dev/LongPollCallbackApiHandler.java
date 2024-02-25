@@ -16,7 +16,6 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.List;
 
-
 public class LongPollCallbackApiHandler extends CallbackApiLongPoll {
 		
 		VkApiClient client;
@@ -31,12 +30,14 @@ public class LongPollCallbackApiHandler extends CallbackApiLongPoll {
 		
 		@Override
 		public void messageNew(Integer groupId, Message message) {
+				
 				try {
 						if(isNewUser(message)) {
+								BotApi.addUser(message.getId(), false, null);
 								BotApi.sendMessage("Привет! Вижу ты тут новенький. Можешь написать свой возраст?");
 								
 						}
-				} catch (ClientException | ApiException e) {
+				} catch (ClientException | ApiException | IOException | InterruptedException e) {
 						throw new RuntimeException(e);
 				}
 		}
